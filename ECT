@@ -1,0 +1,1350 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EcoCycle Tech - Giải pháp thiết bị tái chế rác thải điện tử quy mô nhỏ.">
+  <meta name="theme-color" content="#087653">
+  <title>EcoCycle Tech | Thiết bị tái chế điện tử</title>
+
+  <style>
+    /* ==============================
+       1. THIẾT LẬP CHUNG
+    ============================== */
+    :root {
+      --green: #087653;
+      --green-dark: #064b39;
+      --green-light: #eaf6ef;
+      --green-pale: #f5faf6;
+      --text: #20352c;
+      --muted: #65756c;
+      --border: #dce8df;
+      --white: #ffffff;
+      --radius: 14px;
+      --shadow: 0 8px 28px rgba(9, 65, 45, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    body, button, input, textarea, select {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button, input, textarea, select {
+      font-size: 14px;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    p {
+      margin: 10px 0;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      color: var(--green-dark);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: clamp(32px, 4.2vw, 49px);
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-size: clamp(25px, 3vw, 34px);
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    strong, b {
+      font-weight: 700;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 68px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 30px;
+    }
+
+    .section-heading p {
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 9px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 20px;
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      background: var(--green);
+      color: var(--white);
+      font-weight: 700;
+      text-align: center;
+      transition: background .2s, transform .2s;
+    }
+
+    .btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+    }
+
+    .btn-outline:hover {
+      color: var(--white);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 30px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ==============================
+       2. THANH ĐIỀU HƯỚNG
+    ============================== */
+    .header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, .97);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      min-height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--green-light);
+      font-size: 25px;
+    }
+
+    .brand-name {
+      color: var(--green-dark);
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-caption {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .cart-link {
+      padding: 9px 13px;
+      border: 1px solid var(--green);
+      border-radius: 30px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ==============================
+       3. BANNER TRANG CHỦ
+    ============================== */
+    .hero {
+      overflow: hidden;
+      padding: 65px 0;
+      background:
+        radial-gradient(ellipse at 78% 48%, #d6efdc 0, transparent 38%),
+        linear-gradient(115deg, #f3faf5, #e7f5eb);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .hero h1 {
+      max-width: 590px;
+      margin: 8px 0 20px;
+    }
+
+    .hero-description {
+      max-width: 530px;
+      margin-bottom: 24px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      min-height: 330px;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #d9efdf, #f4faf4);
+    }
+
+    .hero-visual::before {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .62);
+      content: "";
+    }
+
+    .hero-machine {
+      position: relative;
+      z-index: 1;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .hero-machine .machine-icon {
+      font-size: 115px;
+      line-height: 1.3;
+    }
+
+    .hero-machine h3 {
+      margin-top: 10px;
+    }
+
+    .hero-machine p {
+      font-size: 13px;
+    }
+
+    /* ==============================
+       4. LỢI ÍCH
+    ============================== */
+    .benefits {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--green-pale);
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .benefit-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 22px;
+    }
+
+    .benefit h3 {
+      margin: 2px 0 5px;
+      font-size: 15px;
+    }
+
+    .benefit p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* ==============================
+       5. DANH MỤC SẢN PHẨM
+    ============================== */
+    .products {
+      background: white;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      display: grid;
+      min-height: 200px;
+      place-items: center;
+      background: linear-gradient(140deg, #edf7ef, #f8fbf8);
+      font-size: 85px;
+    }
+
+    .product-image span {
+      filter: drop-shadow(0 8px 7px rgba(0, 0, 0, .08));
+    }
+
+    .product-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 22px;
+    }
+
+    .product-content h3 {
+      margin-top: 12px;
+      font-size: 18px;
+    }
+
+    .product-content p {
+      font-size: 13px;
+    }
+
+    .product-price {
+      margin: 12px 0 4px;
+      color: var(--green);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .product-note {
+      font-size: 11px;
+    }
+
+    .product-content .btn {
+      margin-top: auto;
+      padding-top: 10px;
+      width: 100%;
+    }
+
+    /* ==============================
+       6. GIỚI THIỆU DỰ ÁN
+    ============================== */
+    .about {
+      background: var(--green-pale);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .about-copy p {
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .model-panel {
+      padding: 30px;
+      border-radius: 18px;
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .model-panel h3 {
+      margin-bottom: 24px;
+      color: white;
+      font-size: 21px;
+    }
+
+    .model-row {
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      gap: 16px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .model-row:last-child {
+      border-bottom: 0;
+    }
+
+    .model-label {
+      font-weight: 700;
+      color: white;
+    }
+
+    .model-description {
+      color: #d7e9dd;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .environment-card {
+      margin-top: 22px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: white;
+    }
+
+    .environment-card h3 {
+      margin-bottom: 8px;
+    }
+
+    /* ==============================
+       7. GIỎ HÀNG
+    ============================== */
+    .cart-section {
+      background: white;
+    }
+
+    .cart-box {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .cart-box h3 {
+      margin-bottom: 16px;
+    }
+
+    .cart-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-row p {
+      margin: 4px 0 0;
+      font-size: 12px;
+    }
+
+    .remove-btn {
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: white;
+      color: #9b3737;
+      font-size: 12px;
+    }
+
+    .cart-empty {
+      padding: 15px 0;
+      font-size: 14px;
+    }
+
+    /* ==============================
+       8. BIỂU MẪU TƯ VẤN
+    ============================== */
+    .contact {
+      background: var(--green-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      align-items: start;
+      gap: 40px;
+    }
+
+    .contact-copy p {
+      line-height: 1.8;
+    }
+
+    .contact-info {
+      margin-top: 22px;
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      font-size: 14px;
+    }
+
+    .form-card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .form-card h3 {
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 12px;
+      border: 1px solid #d5e1d8;
+      border-radius: 7px;
+      outline: none;
+      background: white;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(8, 118, 83, .1);
+    }
+
+    .form-notice {
+      margin-top: 13px;
+      font-size: 11px;
+    }
+
+    .status-message {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 13px;
+    }
+
+    /* ==============================
+       9. CHÂN TRANG
+    ============================== */
+    .footer {
+      padding: 35px 0 20px;
+      background: #063c2e;
+      color: white;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .footer .brand-name {
+      color: white;
+    }
+
+    .footer .brand-caption,
+    .footer p {
+      color: #c8ddd0;
+    }
+
+    .footer h3 {
+      margin-bottom: 12px;
+      color: white;
+      font-size: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+    }
+
+    .footer-links a,
+    .footer-contact p {
+      color: #d6e7dc;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      font-size: 11px;
+    }
+
+    /* ==============================
+       10. RESPONSIVE
+    ============================== */
+    @media (max-width: 900px) {
+      .navbar {
+        flex-wrap: wrap;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .hero-grid {
+        gap: 25px;
+      }
+
+      .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+
+      .container {
+        width: 92%;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .navbar {
+        gap: 12px;
+      }
+
+      .brand-name {
+        font-size: 19px;
+      }
+
+      .nav-links {
+        gap: 12px 17px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 45px 0;
+      }
+
+      .hero-grid,
+      .product-grid,
+      .benefit-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .hero-visual {
+        min-height: 260px;
+      }
+
+      .hero-machine .machine-icon {
+        font-size: 90px;
+      }
+
+      .benefit {
+        align-items: center;
+      }
+
+      .product-image {
+        min-height: 180px;
+      }
+
+      .model-panel,
+      .form-card {
+        padding: 22px;
+      }
+
+      .model-row {
+        grid-template-columns: 105px 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-full {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="#trangchu" class="brand" aria-label="EcoCycle Tech - Trang chủ">
+        <div class="brand-icon">♻</div>
+        <div>
+          <div class="brand-name">EcoCycle Tech</div>
+          <div class="brand-caption">Tái chế hôm nay - Bảo vệ ngày mai</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="#trangchu">Trang chủ</a>
+        <a href="#sanpham">Sản phẩm</a>
+        <a href="#giaiphap">Giải pháp</a>
+        <a href="#gioithieu">Về chúng tôi</a>
+        <a href="#lienhe">Liên hệ</a>
+      </nav>
+
+      <a class="cart-link" href="#giohang">
+        🛒 Giỏ hàng (<span id="cart-count">0</span>)
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="trangchu">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Công nghệ xanh · Tương lai bền vững</span>
+          <h1>Tái chế rác thải điện tử, bắt đầu từ quy mô nhỏ.</h1>
+          <p class="hero-description">
+            EcoCycle Tech hướng đến cung cấp thiết bị hỗ trợ phân loại,
+            tháo lắp và quản lý rác thải điện tử, phù hợp với nhu cầu
+            của cơ sở thu gom, trường học và doanh nghiệp nhỏ.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#sanpham">Khám phá sản phẩm →</a>
+            <a class="btn btn-outline" href="#lienhe">Tư vấn thiết bị</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" role="img"
+             aria-label="Minh họa thiết bị tái chế điện tử quy mô nhỏ">
+          <div class="hero-machine">
+            <div class="machine-icon">⚙️</div>
+            <h3>Small-scale E-waste Solutions</h3>
+            <p>Giải pháp hỗ trợ tái chế ở quy mô nhỏ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits" id="giaiphap">
+      <div class="container benefit-grid">
+        <div class="benefit">
+          <div class="benefit-icon">♧</div>
+          <div>
+            <h3>Thân thiện môi trường</h3>
+            <p>Khuyến khích thu gom và chuyển giao rác thải đúng cách.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">⚙</div>
+          <div>
+            <h3>Phù hợp quy mô nhỏ</h3>
+            <p>Hướng đến cơ sở thu gom và đơn vị có nhu cầu phù hợp.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">✓</div>
+          <div>
+            <h3>Ưu tiên an toàn</h3>
+            <p>Khuyến nghị sử dụng đúng hướng dẫn của nhà sản xuất.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">↗</div>
+          <div>
+            <h3>Hỗ trợ trực tuyến</h3>
+            <p>Tiếp cận thông tin và gửi yêu cầu tư vấn từ xa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section products" id="sanpham">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Danh mục sản phẩm</span>
+          <h2>Thiết bị dành cho hoạt động tái chế</h2>
+          <p>
+            Tìm hiểu các giải pháp thiết bị và dụng cụ hỗ trợ hoạt động
+            thu gom, phân loại rác thải điện tử.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image" aria-label="Minh họa thiết bị tháo dỡ">
+              <span>⚙️</span>
+            </div>
+            <div class="product-content">
+              <span class="tag">Sản phẩm đề xuất</span>
+              <h3>Thiết bị tháo dỡ linh kiện</h3>
+              <p>
+                Hướng đến hỗ trợ tháo rời một số linh kiện điện tử
+                theo cấu hình và quy trình vận hành phù hợp.
+              </p>
+              <div class="product-price">Liên hệ báo giá</div>
+              <p class="product-note">
+                Thông số kỹ thuật cần được xác nhận từ nhà cung cấp.
+              </p>
+              <button class="btn btn-full"
+                onclick="addToCart('P01', 'Thiết bị tháo dỡ linh kiện')">
+                🛒 Thêm vào giỏ
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image" aria-label="Minh họa bộ dụng cụ phân loại">
+              <span>🔬</span>
+            </div>
+            <div class="product-content">
+              <span class="tag">Hỗ trợ phân loại</span>
+              <h3>Bộ dụng cụ phân loại</h3>
+              <p>
+                Hỗ trợ phân loại một số nhóm linh kiện và vật liệu
+                trước khi chuyển đến đơn vị xử lý phù hợp.
+              </p>
+              <div class="product-price">Liên hệ báo giá</div>
+              <p class="product-note">
+                Danh mục và cấu hình sẽ được cập nhật sau khảo sát.
+              </p>
+              <button class="btn btn-full"
+                onclick="addToCart('P02', 'Bộ dụng cụ phân loại')">
+                🛒 Thêm vào giỏ
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image" aria-label="Minh họa bộ dụng cụ tháo lắp">
+              <span>🧰</span>
+            </div>
+            <div class="product-content">
+              <span class="tag">Phụ kiện</span>
+              <h3>Bộ dụng cụ tháo lắp</h3>
+              <p>
+                Bộ dụng cụ hỗ trợ thao tác tháo lắp một số thiết bị
+                điện tử theo hướng dẫn an toàn.
+              </p>
+              <div class="product-price">Liên hệ báo giá</div>
+              <p class="product-note">
+                Sản phẩm minh họa cho danh mục kinh doanh.
+              </p>
+              <button class="btn btn-full"
+                onclick="addToCart('P03', 'Bộ dụng cụ tháo lắp')">
+                🛒 Thêm vào giỏ
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="gioithieu">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">Về dự án</span>
+          <h2>Đưa giải pháp tái chế đến gần hơn với cộng đồng</h2>
+          <p>
+            EcoCycle Tech là thương hiệu giả định được xây dựng trong
+            khuôn khổ đề án “Xây dựng đề án đưa thiết bị tái chế rác thải
+            điện tử quy mô nhỏ ra thị trường qua kênh thương mại điện tử”.
+          </p>
+          <p>
+            Dự án tập trung nghiên cứu nhu cầu thị trường, lựa chọn
+            thiết bị phù hợp, phát triển kênh bán hàng trực tuyến và
+            xây dựng quy trình tư vấn khách hàng.
+          </p>
+          <p>
+            Mục tiêu là kết nối khách hàng với các giải pháp thiết bị
+            có thông tin rõ ràng, nguồn gốc phù hợp và hướng dẫn sử dụng
+            được xác minh.
+          </p>
+
+          <div class="environment-card">
+            <h3>♻ Hướng đến kinh tế tuần hoàn</h3>
+            <p>
+              Khuyến khích thu gom, phân loại và chuyển giao rác thải
+              điện tử cho các đơn vị có đủ điều kiện xử lý.
+            </p>
+          </div>
+        </div>
+
+        <div class="model-panel">
+          <h3>Mô hình kinh doanh dự kiến</h3>
+
+          <div class="model-row">
+            <div class="model-label">Khách hàng</div>
+            <div class="model-description">
+              Cơ sở thu gom, trường học, phòng thực hành và doanh nghiệp nhỏ.
+            </div>
+          </div>
+
+          <div class="model-row">
+            <div class="model-label">Kênh bán</div>
+            <div class="model-description">
+              Website, sàn thương mại điện tử và mạng xã hội.
+            </div>
+          </div>
+
+          <div class="model-row">
+            <div class="model-label">Nguồn thu</div>
+            <div class="model-description">
+              Bán thiết bị, phụ kiện và dịch vụ hỗ trợ nếu đáp ứng
+              điều kiện triển khai.
+            </div>
+          </div>
+
+          <div class="model-row">
+            <div class="model-label">Giá trị</div>
+            <div class="model-description">
+              Tiếp cận thông tin thuận tiện và hỗ trợ lựa chọn thiết bị
+              theo nhu cầu thực tế.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CART -->
+    <section class="section cart-section" id="giohang">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Đơn hàng</span>
+          <h2>Giỏ hàng của bạn</h2>
+          <p>
+            Kiểm tra các sản phẩm đã chọn trước khi gửi yêu cầu tư vấn.
+          </p>
+        </div>
+
+        <div class="cart-box">
+          <h3>Sản phẩm đã chọn</h3>
+          <div id="cart-items" aria-live="polite">
+            <p class="cart-empty">Giỏ hàng của bạn đang trống.</p>
+          </div>
+          <a href="#lienhe" class="btn">Gửi yêu cầu tư vấn →</a>
+          <p class="product-note">
+            Đây là giỏ hàng minh họa, chưa xử lý thanh toán hoặc lưu đơn hàng.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="lienhe">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Kết nối với chúng tôi</span>
+          <h2>Nhận tư vấn và báo giá</h2>
+          <p>
+            Hãy cho chúng tôi biết nhu cầu của bạn để minh họa quy trình
+            tiếp nhận yêu cầu của cửa hàng thương mại điện tử EcoCycle Tech.
+          </p>
+
+          <div class="contact-info">
+            <p><strong>✉ Email:</strong> ecocycletech@example.com</p>
+            <p><strong>♻ Lĩnh vực:</strong> Thiết bị tái chế điện tử</p>
+            <p><strong>🛒 Kênh:</strong> Thương mại điện tử</p>
+          </div>
+        </div>
+
+        <form class="form-card" id="contact-form">
+          <h3>Thông tin khách hàng</h3>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="customer-name">Họ và tên *</label>
+              <input id="customer-name" name="name"
+                autocomplete="name" required
+                placeholder="Nhập họ và tên">
+            </div>
+
+            <div class="field">
+              <label for="customer-email">Email *</label>
+              <input id="customer-email" name="email" type="email"
+                autocomplete="email" required
+                placeholder="email@example.com">
+            </div>
+
+            <div class="field">
+              <label for="customer-phone">Số điện thoại</label>
+              <input id="customer-phone" name="phone" type="tel"
+                autocomplete="tel" placeholder="Nhập số điện thoại">
+            </div>
+
+            <div class="field">
+              <label for="customer-product">Sản phẩm quan tâm</label>
+              <select id="customer-product" name="product">
+                <option>Thiết bị tháo dỡ linh kiện</option>
+                <option>Bộ dụng cụ phân loại</option>
+                <option>Bộ dụng cụ tháo lắp</option>
+                <option>Tư vấn giải pháp khác</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <label for="customer-message">Nhu cầu của bạn</label>
+              <textarea id="customer-message" name="message"
+                placeholder="Mục đích sử dụng, số lượng dự kiến..."></textarea>
+            </div>
+
+            <div class="field field-full">
+              <button class="btn btn-full" type="submit">
+                Gửi yêu cầu tư vấn →
+              </button>
+            </div>
+          </div>
+
+          <p class="form-notice">
+            Bản demo học tập: biểu mẫu chưa gửi dữ liệu đến máy chủ
+            hoặc email thực tế.
+          </p>
+
+          <div id="form-status" class="status-message"
+            role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#trangchu" class="brand">
+            <div class="brand-icon">♻</div>
+            <div>
+              <div class="brand-name">EcoCycle Tech</div>
+              <div class="brand-caption">Tái chế hôm nay - Bảo vệ ngày mai</div>
+            </div>
+          </a>
+          <p>
+            Giải pháp thương mại điện tử hướng đến thiết bị hỗ trợ
+            tái chế rác thải điện tử quy mô nhỏ.
+          </p>
+        </div>
+
+        <div>
+          <h3>Liên kết nhanh</h3>
+          <div class="footer-links">
+            <a href="#trangchu">Trang chủ</a>
+            <a href="#sanpham">Sản phẩm</a>
+            <a href="#giaiphap">Giải pháp</a>
+            <a href="#gioithieu">Về chúng tôi</a>
+            <a href="#lienhe">Liên hệ</a>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Thông tin dự án</h3>
+          <p>Email minh họa: ecocycletech@example.com</p>
+          <p>Website phục vụ đề án học tập.</p>
+          <p>Thông tin sản phẩm và giá bán cần được xác minh.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 EcoCycle Tech. Bản mẫu phục vụ học tập.</p>
+        <p>Hướng đến tương lai xanh ♻</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ==============================
+       GIỎ HÀNG MINH HỌA
+    ============================== */
+    const cart = [];
+
+    function addToCart(id, name) {
+      const existing = cart.find(item => item.id === id);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: id,
+          name: name,
+          quantity: 1
+        });
+      }
+
+      renderCart();
+
+      document.getElementById('giohang').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    function removeFromCart(id) {
+      const index = cart.findIndex(item => item.id === id);
+
+      if (index !== -1) {
+        cart.splice(index, 1);
+      }
+
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cart-items');
+      const count = cart.reduce(
+        (total, item) => total + item.quantity, 0
+      );
+
+      document.getElementById('cart-count').textContent = count;
+
+      if (cart.length === 0) {
+        container.innerHTML =
+          '<p class="cart-empty">Giỏ hàng của bạn đang trống.</p>';
+        return;
+      }
+
+      container.replaceChildren();
+
+      cart.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'cart-row';
+
+        const info = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = item.name;
+
+        const quantity = document.createElement('p');
+        quantity.textContent = 'Số lượng: ' + item.quantity;
+
+        info.append(title, quantity);
+
+        const remove = document.createElement('button');
+        remove.className = 'remove-btn';
+        remove.type = 'button';
+        remove.textContent = 'Xóa';
+
+        remove.addEventListener('click', () => {
+          removeFromCart(item.id);
+        });
+
+        row.append(info, remove);
+        container.append(row);
+      });
+    }
+
+    /* ==============================
+       BIỂU MẪU TƯ VẤN DEMO
+    ============================== */
+    document.getElementById('contact-form').addEventListener(
+      'submit',
+      function(event) {
+        event.preventDefault();
+
+        const name =
+          document.getElementById('customer-name').value.trim();
+
+        const email =
+          document.getElementById('customer-email').value.trim();
+
+        const product =
+          document.getElementById('customer-product').value;
+
+        const status =
+          document.getElementById('form-status');
+
+        if (!name || !email) {
+          status.hidden = false;
+          status.textContent =
+            'Vui lòng nhập đầy đủ họ tên và email.';
+          return;
+        }
+
+        status.hidden = false;
+        status.textContent =
+          'Biểu mẫu đã được kiểm tra thành công. ' +
+          'Đây là bản demo: thông tin chưa được gửi hoặc lưu. ' +
+          'Sản phẩm bạn quan tâm: ' + product + '.';
+
+        status.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
+      }
+    );
+  </script>
+</body>
+</html>
